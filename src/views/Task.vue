@@ -60,7 +60,7 @@
         </button>
       </form>
     </div>
-    <p v-else>Task not found</p>
+    <p v-else>Задача не найдена</p>
   </div>
 </template>
 
