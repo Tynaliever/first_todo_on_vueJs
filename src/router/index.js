@@ -1,29 +1,33 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import Vue from "vue";
+import VueRouter from "vue-router";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
+  // путь к странице добавления задачи
   {
-    path: '/',
-    name: 'home',
-    component: HomeView
+    path: "/",
+    name: "create",
+    component: () => import("../views/Create.vue"),
   },
+  // путь к странице просмотра задач
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
-]
+    path: "/list",
+    name: "list",
+    component: () => import("../views/List.vue"),
+  },
+  // путь к странице просмотра задачи
+  {
+    path: "/task/:id",
+    name: "task",
+    component: () => import("../views/Task.vue"),
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
